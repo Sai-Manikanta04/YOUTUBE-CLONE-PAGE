@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Clone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+
+        /* Top Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .logo img {
+            height: 30px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background: #fff;
+            width: 40%;
+            max-width: 500px;
+        }
+
+        .search-container input {
+            border: none;
+            outline: none;
+            padding: 8px 12px;
+            flex: 1;
+            font-size: 14px;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .search-btn i {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mic-btn,
+        .notif-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .mic-btn i,
+        .notif-btn i {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .mic-btn:hover i,
+        .notif-btn:hover i {
+            color: #000;
+        }
+
+        .profile {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: skyblue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            user-select: none;
+        }
+
+
+        /* Sidebar */
+        .sidebar {
+            width: 150px;
+            background: #fff;
+            padding: 15px 0;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 60px;
+            /* height of navbar */
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .sidebar a:hover {
+            background: #f2f2f2;
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 200px;
+            /* equal to sidebar width */
+            padding: 20px;
+        }
+
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .video-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 200px;
+            display: block;
+        }
+
+        .video-info {
+            padding: 10px;
+        }
+
+        .video-info h4 {
+            font-size: 14px;
+            margin: 0 0 5px 0;
+            color: #000;
+        }
+
+        .video-info p {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo" height="30">
+        </a>
+
+        <!-- Search Bar + Mic -->
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+            <button class="search-btn">
+                <i class="fa-solid fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Mic + Notifications + Profile -->
+        <div class="navbar-icons">
+            <button class="mic-btn" title="Search with your voice">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+            <button class="notif-btn" title="Notifications">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+            <div class="profile" title="Your profile">B</div>
+        </div>
+    </div>
+
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Shorts</a>
+        <a href="#">Subscriptions</a>
+        <a href="#">History</a>
+        <a href="#">Playlists</a>
+        <a href="#">Watch later</a>
+        <a href="#">Liked videos</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="videos">
+
+            <!-- Video Card 1 -->
+            <div class="video-card">
+                <a href="https://youtu.be/7nQsQ0rvYqQ" target="_blank">
+                    <img src="https://img.youtube.com/vi/7nQsQ0rvYqQ/maxresdefault.jpg" alt="How to Start App Development? Complete RoadMap | 2024">
+                </a>
+                <div class="video-info">
+                    <h4>How to Start App Development? Complete RoadMap | 2024</h4>
+                    <p>Apna College · 1.1M views · 2 years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="video-card">
+                <a href="https://youtu.be/VGFpV3Qj4as" target="_blank">
+                    <img src="https://img.youtube.com/vi/VGFpV3Qj4as/hqdefault.jpg" alt="AI BASICS FOR BEGINNERS">
+                </a>
+                <div class="video-info">
+                    <h4>AI BASICS FOR BEGINNERS</h4>
+                    <p>Code Basics · 317k views · 3 months ago</p>
+                </div>
+            </div>
+
+
+            <!-- Video Card 3 -->
+            <div class="video-card">
+                <a href="https://youtu.be/O4BwvpVJ17k" target="_blank">
+                    <img src="https://img.youtube.com/vi/O4BwvpVJ17k/maxresdefault.jpg" alt="What is Knowledge ? Defined by APJ Abdul Kalam">
+                </a>
+                <div class="video-info">
+                    <h4>What is Knowledge ? Defined by APJ Abdul Kalam</h4>
+                    <p>Subham Subh · 5.6M Views · 7 Years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 4 -->
+            <div class="video-card">
+                <a href="https://youtu.be/7m4zQpf3Ouo" target="_blank">
+                    <img src="https://img.youtube.com/vi/7m4zQpf3Ouo/maxresdefault.jpg" alt="Ratan Tata Leaves The Audience SPEECHLESS">
+                </a>
+                <div class="video-info">
+                    <h4>Ratan Tata Leaves The Audience SPEECHLESS</h4>
+                    <p>STILL I RISE MOTIVATION · 3.4M VIEWS · 3 Years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 5 -->
+            <div class="video-card">
+                <a href="https://youtu.be/FbXOsVByKmk" target="_blank">
+                    <img src="https://img.youtube.com/vi/FbXOsVByKmk/maxresdefault.jpg" alt="TITLE_PLACEHOLDER_5">
+                </a>
+                <div class="video-info">
+                    <h4>Fire Storm Lyrical Telugu | PawanKalyan |Sujeeth </h4>
+                    <p>Sony Music South · 24M Views · 1 Month ago </p>
+                </div>
+            </div>
+
+            <!-- Video Card 6 -->
+            <div class="video-card">
+                <a href="https://youtu.be/UGKNtMwVTdw" target="_blank">
+                    <img src="https://img.youtube.com/vi/UGKNtMwVTdw/maxresdefault.jpg" alt="TITLE_PLACEHOLDER_6">
+                </a>
+                <div class="video-info">
+                    <h4>How Wipro Started </h4>
+                    <p>Business Planet · 17K Views · 4 Years ago </p>
+                </div>
+            </div>
+
+            <!--Video Card 7 -->
+            <div class="video-card">
+                <a href="https://youtu.be/i5WYp4wMXfc" target="_blank">
+                    <img src="https://i.ytimg.com/vi/i5WYp4wMXfc/maxresdefault.jpg" alt="How to Make a Thumbnail for YouTube Videos - Easy & Free!">
+                </a>
+                <div class="video-info">
+                    <h4>Inspiring Speech by APJ ABDUL KALAM </h4>
+                    <p>Inspiring Minds· 7.2M views · 7years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 8 -->
+            <div class="video-card">
+                <a href="https://youtu.be/_snoVZwQGVs?si=wgmERpJ1yRcrj-88" target="_blank">
+                    <img src="https://img.youtube.com/vi/_snoVZwQGVs/maxresdefault.jpg" alt="Story of Amazon">
+                </a>
+                <div class="video-info">
+                    <h4>Story of Amazon </h4>
+                    <p>Jack Chapple· 22K views · 7years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 9 -->
+            <div class="video-card">
+                <a href="https://youtu.be/WepSY1rgoys?si=EBBx16ouC6ek7KrN" target="_blank">
+                    <img src="https://img.youtube.com/vi/WepSY1rgoys/maxresdefault.jpg" alt="HBD OG love OMI THEY CALL HIM OG">
+                </a>
+                <div class="video-info">
+                    <h4>HBD OG love OMI |THEY CALL HIM OG |</h4>
+                    <p>Sony Music South· 7.5M views · 9 days ago</p>
+                </div>
+            </div>
+
+
+            <!-- Video Card 10 -->
+            <div class="video-card">
+                <a href="https://youtu.be/b4OH3vBANa4?si=-5FNOorm45aniGv3" target="_blank">
+                    <img src="https://img.youtube.com/vi/b4OH3vBANa4/hqdefault.jpg" alt="MS DHONI">
+                </a>
+                <div class="video-info">
+                    <h4>A TRIBUTE TO MS DHONI </h4>
+                    <p>ICC· 16M views · 5 Years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 11 -->
+            <div class="video-card">
+                <a href="https://youtu.be/qkHHq4crl2c?si=ibtYHFhdeJoCaE0L" target="_blank">
+                    <img src="https://img.youtube.com/vi/qkHHq4crl2c/hqdefault.jpg" alt="Life of Ratan Tata">
+                </a>
+                <div class="video-info">
+                    <h4> Ratan Tata Biography </h4>
+                    <p>Stories· 349K views · 8 Years ago</p>
+                </div>
+            </div>
+
+            <!-- Video Card 12 -->
+            <div class="video-card">
+                <a href="https://youtu.be/Xjq0kljBZnY?si=LZ8K7ldyqW-PzsSr" target="_blank">
+                    <img src="https://img.youtube.com/vi/Xjq0kljBZnY/hqdefault.jpg" alt="Microsoft">
+                </a>
+                <div class="video-info">
+                    <h4> Story of Microsoft </h4>
+                    <p> jack Chapple· 711K views · 5 Years ago</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
